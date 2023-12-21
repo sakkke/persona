@@ -5,5 +5,7 @@ from .persona import Persona
 
 load_dotenv()
 
-persona = Persona(client, 'You are an assistant.')
+prompt = '''You are an assistant.'''
+
+persona = Persona(client, prompt)
 persona.run(os.getenv('TOKEN'))
