@@ -5,7 +5,7 @@ from .persona import Persona
 
 load_dotenv()
 
-prompt = '''You are an assistant.'''
+prompt = '''Please answer SUCCINCTLY and DIRECTLY. You are an assistant.'''
 
 persona = Persona(client, prompt)
 persona.run(os.getenv('TOKEN'))
