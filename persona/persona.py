@@ -8,7 +8,7 @@ class Message:
     role: str
 
 class Persona(discord.Client):
-    assistant = 'Please answer DO NOT include `^<@\d+ >.`'
+    assistant = 'Please answer DO NOT include `^<@\d+> `.'
     max_tokens: int
     model: str
     openai_client: OpenAI
