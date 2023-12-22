@@ -12,7 +12,7 @@ class Persona(discord.Client):
     openai_client: OpenAI
 
     def __init__(self, openai_client: OpenAI, first_message: str,
-                 *args, **kwargs):
+                 model: str = 'gpt-3.5-turbo', *args, **kwargs):
         self.openai_client = openai_client
         self.first_message = first_message
         super(Persona, self).__init__(*args, **kwargs)
@@ -33,7 +33,7 @@ class Persona(discord.Client):
             messages = await self.build_messages(message, [])
             print(messages)
             completion = self.openai_client.chat.completions.create(
-                model='gpt-3.5-turbo',
+                model=self.model,
                 messages=messages,
             )
             await message.reply(completion.choices[0].message.content)
